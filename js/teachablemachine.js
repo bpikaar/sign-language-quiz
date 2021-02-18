@@ -47,16 +47,30 @@ export class TeachableMachine {
         this.webcam = new tmImage.Webcam(this.videoSize, this.videoSize, this.flip) // width, height, flip
         
         await this.webcam.setup({
-            "deviceId" : this.deviceId // select right input
+            deviceId    : this.deviceId, // select right input
+            facingMode  : "user",  // enviroment for backface 
+            // crop_width  : 250, // final cropped size
+            // crop_height : 250,
+            // width       : this.videoSize,
+            height      : this.videoSize,
+            // aspectRatio : 1.0,
+            // resizeMode  : "crop"
         }) // request access to the webcam
         
-        document.getElementById("webcam-container").appendChild(this.webcam.canvas)
+        // Google original snippet was .appendChild(this.webcam.canvas)
+        document.getElementById("webcam-container").appendChild(this.webcam.webcam)
         
         if(this.debug) {
             for (let i = 0 ; i < this.maxPredictions ; i++) { // and class labels
                 this.labelContainer.appendChild(document.createElement("div"))
             }
         }
+
+        // for iphone
+        let wc = document.getElementsByTagName('video')[0];
+        wc.setAttribute("playsinline", true); // written with "setAttribute" bc. iOS buggs otherwise :-)
+        wc.muted = "true"
+        // wc.id = "webcamVideo";
 
         window.requestAnimationFrame(() => this.loop())
 
