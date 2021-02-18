@@ -44,17 +44,12 @@ export class TeachableMachine {
         this.maxPredictions = this.model.getTotalClasses()
 
         // Convenience function to setup a webcam
-        this.webcam = new tmImage.Webcam(this.videoSize, this.videoSize, this.flip) // width, height, flip
+        this.webcam = new tmImage.Webcam(640, 480, this.flip) // width, height, flip
         
         await this.webcam.setup({
             deviceId    : this.deviceId, // select right input
             facingMode  : "user",  // enviroment for backface 
-            // crop_width  : 250, // final cropped size
-            // crop_height : 250,
-            // width       : this.videoSize,
-            height      : this.videoSize,
-            // aspectRatio : 1.0,
-            // resizeMode  : "crop"
+            aspectRatio : 1.0,
         }) // request access to the webcam
         
         // Google original snippet was .appendChild(this.webcam.canvas)

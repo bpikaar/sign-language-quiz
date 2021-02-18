@@ -46,7 +46,8 @@ answer {
     overflow: hidden;
 }
 #webcam-container video{
-    margin-left: -195px;
+    width: 250px;
+    height: 250px;
 }
 /* #webcam-container canvas{
     border:4px solid rgba(255, 0, 0, 0.7);
