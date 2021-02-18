@@ -3,72 +3,93 @@ html {
 }
 
 body {
-    /* background: linear-gradient(-45deg,#23a6d5,#23d5ab) no-repeat;
-    background-size: cover; */
-    margin: 0;
-    /* min-height: 100vh; */
-    
-    display: flex;
-    flex-direction: column;
-    gap: 2%;
+    margin: 0; 
 }
 
 header {
-    position: relative;
-    border-radius: 8px;
     background-color: rgb(69, 69, 206);
-    padding: 20px;
-    color:white;
-    min-width: 300px;
-    box-sizing: border-box;
-}
-
-.center {
-    width: 600px;
-    margin: auto;
-    box-sizing: border-box;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 20px;
     margin-top: 20px;
 }
 
-answer, letter {
-    font-size: 16em;
+container {
+    display: block;
+    width: 510px;
+    margin: auto;
 }
 
-answer {
-    /* display: block; */
-    /* block-size: 500; */
-    /* height: 500; */
-    /* position: absolute;
-    left: 100px; */
+main flex-wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
 
+
+assignment, answer {
+    font-size: 13em;
+    text-align: center;
+}
+
+assignment{
+    color: rgb(69, 69, 206);
+}
+answer {
     color: rgba(255, 0, 0, 0.7);
 }
 
-assignment {
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
+#webcam-container {
+    padding: 0;
 }
-assignment letter{
-    width: 300px;
-    height: 300px;
-    margin: auto;
-    color: rgb(92, 92, 207);
-    text-align: center;
-    border:4px solid rgb(92, 92, 207);
-    border-radius: 8px;
-    min-width: 300px;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-
 #webcam-container canvas{
-    border:4px solid rgba(255, 0, 0, 0.7);
+    /* border:4px solid rgba(255, 0, 0, 0.7); */
     border-radius: 8px;
 }
 
 progress-ring {
     position: absolute;
+}
+
+.text-white{
+    color:white;
+}
+.bg-purple {
+    background-color: rgb(69, 69, 206);
+}
+.bg-green {
+    background-color: #3ea03b;
+}
+.bg-red {
+    background-color: #FF665E;
+}
+.bordered {
+    border:4px solid;
+    border-radius: 8px;
+}
+.bordered.purple {
+    border-color: rgb(92, 92, 207);
+}
+.bordered.red {
+    border-color: #FF665E;
+}
+.square {
+    display: block;
+    width: 250px;
+    height: 250px;
+    padding: 0 2vw;
+
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+.rel {
+    position: relative;
+}
+.abs {
+    position: absolute;
+    top: 0; left: 0;
 }
 
 button {
@@ -91,44 +112,14 @@ button {
     cursor: pointer;
 }
 
-.flex {
-    display: flex;
-}
-.child {
-    width: 300px;  /* Or whatever */
-    height: 300px; /* Or whatever */
-    margin: auto;  /* Magic! */
+@media only screen and (max-width: 530px) {
+    container {
+        width: auto;
+        margin: 20px;
+    }
 
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-.flex answer {
-    /* flex-basis: 500px; */
-    text-align: center;
-}
-
-result {
-    position: absolute;
-    top: 0; left: 0;
-    border-radius: 8px;
-    background-color: rgb(197, 206, 69);
-    padding: 20px;
-    color:white;
-    min-width: 300px; min-height: 300px;
-    box-sizing: border-box;
-}
-
-success, failed {
-    background-color: #3ea03b;
-
-    position: absolute;
-    top: 0; left: 0;
-    border-radius: 8px;
-    padding: 20px;
-    color:white;
-    min-width: 300px; min-height: 300px;
-    box-sizing: border-box;
-}
-failed {
-    background-color: #FF665E;
+    assignment-text.square, success.square, failed.square {
+        width: 100%;
+        height: auto;
+    }
 }

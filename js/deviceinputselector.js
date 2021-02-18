@@ -27,7 +27,7 @@ export class DeviceInputSelector extends HTMLElement {
             .then((deviceInfos) => this.gotDevices(deviceInfos))
             .catch((e) => this.handleError(e))
     }
-
+    
     gotDevices(deviceInfos) {
         // Handles being called several times to update labels. Preserve values.
         const values = this.selectors.map(select => select.value);
@@ -55,7 +55,7 @@ export class DeviceInputSelector extends HTMLElement {
     }
 
     handleError(error) {
-        console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
+        if (this.debug) console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
     }
 }
 

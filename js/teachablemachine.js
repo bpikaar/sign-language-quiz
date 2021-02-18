@@ -4,13 +4,13 @@ export class TeachableMachine {
      * 
      * @param {string} deviceId the id of the video source
      */
-    constructor(deviceId) {
+    constructor(deviceId, size) {
         // the link to your model provided by Teachable Machine export panel
         const URL = "./my_model/"
 
         this.deviceId       = deviceId
         this.debug          = false
-        this.videoSize      = 300
+        this.videoSize      = size
         this.flip           = true // whether to flip the webcam
         this.modelURL       = URL + "model.json"
         this.metadataURL    = URL + "metadata.json"

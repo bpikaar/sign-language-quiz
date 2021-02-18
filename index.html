@@ -7,52 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script defer src="js/main.js" type="module"></script>
 </head>
 
 <body>
-    <header class="center">
-        <h2>Sign Language Quiz</h2>
-    </header>
-    <device-selection class="center">
-        <h3>Input select</h3>
-        <div class="select" id="select-wrapper">
-            <!-- <label for="videoSource">Video source: </label><select id="videoSource"></select> -->
+    <container>
+        <header>
+            <h2>Sign Language Quiz</h2>
+        </header>
+        <device-selection>
+            <h3>Input select</h3>
+            <div class="select" id="select-wrapper"></div>
+            <button type="button" id="start">Start</button>
+        </device-selection>
+        <main>
+            <flex-wrapper>
+                <assignment-text class="bg-purple text-white square rel">
+                    <h3>Next Letter</h3>
+                    <p>Create the next letter in sign language</p>
+                    <p><br></p>
+                    <success class="bg-green text-white square abs">
+                        <h3>Success!</h3>
+                        <p>Great job, that's the right sign</p>
+                        <p>Next Round is about to start</p>
+                    </success>
+                    <failed class="bg-red text-white square abs">
+                        <h3>Too bad</h3>
+                        <p>That's not the right sign. Try again.</p>
+                        <p>Next Round is about to start</p>
+                    </failed>
+                </assignment-text>
+                <assignment class="square bordered purple"></assignment>
+                <div id="webcam-container" class="square"></div>
+                <answer class="square bordered red"></answer>
+            </flex-wrapper>
+  
             
-        </div>
-        <button type="button" id="start">Start</button>
-    </device-selection>
-    <main class="center">
-        <assignment>
-            <header>
-                <h3>Next Letter</h3>
-                <p>Create the next letter in sign language</p>
-                <success>
-                    <h3>Success!</h3>
-                    <p>Great job, that's the right sign</p>
-                    <p>Next Round is about to start</p>
-                </success>
-                <failed>
-                    <h3>Too bad</h3>
-                    <p>That's not the right sign. Try again.</p>
-                    <p>Next Round is about to start</p>
-                </failed>
-            </header>
-            <letter></letter>
-        </assignment>
-
-        <div class="flex">
-            <div id="webcam-container" class="child">
-                <progress-ring stroke="60" radius="150" progress="0"></progress-ring>
-            </div>
-            <answer class="child"></answer>
-        </div>
-        
-        
-        <div id="label-container"></div>
-    </main>
-    <!-- <footer class="center">
-        Footer
-    </footer> -->
+            
+            <div id="label-container"></div>
+        </main>
+        <!-- <footer class="center">
+            Footer
+        </footer> -->
+    </container>
     
     <template id="video-template">
         <style>
@@ -71,10 +71,6 @@
             <option value="no selection" selected disabled>Select your input</option>
         </select>
     </template>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-    <script src="js/main.js" type="module"></script>
 </body>
 
 </html>

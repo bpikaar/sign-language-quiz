@@ -1,11 +1,8 @@
 export class ProgressRing extends HTMLElement {
-    
-    constructor() {
+  
+    constructor(stroke, radius) {
         super()
-          
-        // get config from attributes
-        const stroke = this.getAttribute('stroke');
-        const radius = this.getAttribute('radius');
+        
         const normalizedRadius = radius - stroke * 2;
         this._circumference = normalizedRadius * 2 * Math.PI;
       
