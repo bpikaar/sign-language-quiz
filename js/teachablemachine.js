@@ -11,7 +11,7 @@ export class TeachableMachine {
         this.deviceId       = deviceId
         this.debug          = false
         this.videoSize      = size
-        this.flip           = true // whether to flip the webcam
+        this.flip           = /Mobi/i.test(window.navigator.userAgent) ? false : true // on mobile do not flip camera
         this.modelURL       = URL + "model.json"
         this.metadataURL    = URL + "metadata.json"
         this.labelContainer = document.getElementById("label-container")
