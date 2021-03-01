@@ -1,18 +1,30 @@
+//#region Template
+const template = document.createElement('template')
+template.innerHTML = `
+<style>
+#video-source {
+    padding: 8px;
+    border: 2px solid rgb(69, 69, 206);
+    border-radius: 8px;
+    cursor: pointer;
+}
+#video-source:focus {
+    outline: none;
+}
+</style>
+<label for="video-source">Video source: </label>
+<select id="video-source">
+    <option value="no selection" selected disabled>Select your input</option>
+</select>
+`
+
 export class DeviceInputSelector extends HTMLElement {
     constructor() {
         super()
-        
-        const template = document.getElementById('video-template').content;
-        this.appendChild(template.cloneNode(true));
+        .attachShadow({mode: 'open'});
         
         this.debug          = false
-        this.videoSelect    = this.querySelector('select#video-source')
-        this.selectors      = [this.videoSelect] // if more selectors are needed (e.g. audio)
         this.deviceId       = 'no selection'
-        
-        this.videoSelect.addEventListener('change', event => {
-            this.deviceId = event.target.value;
-        });
     }
 
     /**
@@ -23,6 +35,17 @@ export class DeviceInputSelector extends HTMLElement {
     }
 
     connectedCallback() {
+        // create shadow dom root
+        if(this.shadowRoot) {
+            let temp = template.content.cloneNode(true)
+            this.shadowRoot.appendChild(temp)    
+        }
+        this.videoSelect    = this.shadowRoot.querySelector('select')
+        this.selectors      = [this.videoSelect] // if more selectors are needed (e.g. audio)
+        this.videoSelect.addEventListener('change', event => {
+            this.deviceId = event.target.value;
+        })
+
         navigator.mediaDevices.enumerateDevices()
             .then((deviceInfos) => this.gotDevices(deviceInfos))
             .catch((e) => this.handleError(e))

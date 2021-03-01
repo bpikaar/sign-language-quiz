@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
 
-    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.1.0/dist/tf.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <script defer src="js/main.js" type="module"></script>
 </head>
@@ -49,28 +49,13 @@
             
             <div id="label-container"></div>
         </main>
+        <canvas id="output" ></canvas>
+        <h2>Landmarks array voor KNN ⬇️</h2>
+        <div id="array">bla</div>
         <!-- <footer class="center">
             Footer
         </footer> -->
     </container>
-    
-    <template id="video-template">
-        <style>
-        #video-source {
-            padding: 8px;
-            border: 2px solid rgb(69, 69, 206);
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        #video-source:focus {
-            outline: none;
-        }
-        </style>
-        <label for="video-source">Video source: </label>
-        <select id="video-source">
-            <option value="no selection" selected disabled>Select your input</option>
-        </select>
-    </template>
 </body>
 
 </html>
