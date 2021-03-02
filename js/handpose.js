@@ -6,6 +6,7 @@ export class HandPose {
     canvas
     deviceId
     video
+    predictions // hand data
     log             = document.querySelector("#array")
     VIDEO_WIDTH     = 250
     VIDEO_HEIGHT    = 250
@@ -19,18 +20,30 @@ export class HandPose {
         pinky:          [0, 17, 18, 19, 20]
     }
 
+    get data() {
+        if(this.predictions.length > 0) {
+            let result = []
+            for (const landmark of this.predictions[0].landmarks) {
+                for (const datapoint of landmark) {
+                    result.push(datapoint)    
+                }
+            }
+            return result
+        } else {
+            return []
+        }
+    }
+
     constructor(deviceId) {
         this.deviceId = deviceId
         // video fallback
         navigator.getUserMedia = navigator.getUserMedia ||navigator.webkitGetUserMedia || navigator.mozGetUserMedia
-
-        this.main()
     }
 
     /**
      * Start the app
      */
-    async main() {
+    async init() {
         this.model = await handpose.load()
         this.video = await this.setupCamera()
         this.video.play()
@@ -107,7 +120,8 @@ export class HandPose {
         if (predictions.length > 0) {
             const result = predictions[0].landmarks
             this.drawKeypoints(this.ctx, result, predictions[0].annotations)
-            this.logData(predictions)
+            // this.logData(predictions)
+            this.predictions = predictions
         }
 
         // 60 keer per seconde is veel, gebruik setTimeout om minder vaak te predicten

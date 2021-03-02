@@ -14,6 +14,14 @@ header {
     margin-top: 20px;
 }
 
+input {
+    padding: 8px;
+    border: 2px solid rgb(69, 69, 206);
+    border-radius: 8px;
+}
+input:focus {
+    outline: none;
+}
 container {
     display: block;
     width: 510px;
