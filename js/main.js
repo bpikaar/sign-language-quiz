@@ -6,11 +6,16 @@ import { DeviceInputSelector }  from './deviceinputselector.js'
 import { ProgressRing }         from './progressring.js'
 
 export class Main {
+
+    deviceInputSelector
+    progressRing       
+    alphabet 
+    teachableMachine
+
     constructor() {
         this.deviceInputSelector    = new DeviceInputSelector()
         this.progressRing           = new ProgressRing(45, 125)
-        this.alphabet               = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
-        this.teachableMachine
+        this.alphabet               = ['A', 'B', 'C', 'D', 'E', 'F', 'G']        
 
         document.querySelector('main').style.display    = 'none'
         document.querySelector('success').style.display = 'none'

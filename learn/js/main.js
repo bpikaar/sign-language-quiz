@@ -1,6 +1,6 @@
-import { HandPose } from "../../js/handpose.js"
-import { DeviceInputSelector } from "../../js/deviceinputselector.js"
-import { Database } from "../../js/database.js"
+import { HandPose }             from "../../js/handpose.js"
+import { DeviceInputSelector }  from "../../js/deviceinputselector.js"
+import { Database }             from "../../js/database.js"
 
 export class Main {
     
@@ -15,7 +15,7 @@ export class Main {
         document.querySelector('#select-wrapper').appendChild(this.deviceInputSelector)
         
         this.db = new Database()
-        this.knn = new kNear(3)
+        this.knn = new kNear(5)
 
         document.querySelector('#start').addEventListener('click',      () => this.handleStart())
         document.querySelector('#store').addEventListener('click',      () => this.handleStore())
