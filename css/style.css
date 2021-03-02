@@ -1,5 +1,6 @@
 html {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: gray;
 }
 
 body {
@@ -123,6 +124,23 @@ button {
     letter-spacing: .5px;
     transition: background-color .2s ease-out;
     cursor: pointer;
+}
+
+chip {
+    padding: 0px 10px;
+    border-radius: 50px;
+    border: 1px solid rgb(69, 69, 206);
+    margin: 5px;
+    background-color: rgb(69, 69, 206);
+    color: white;
+}
+
+chip span{
+    border-radius: 50px;
+    background-color: white;
+    color: rgb(69,69,206);
+    padding: 0px 7px;
+    margin: 0px -10px 0px 7px;
 }
 
 @media only screen and (max-width: 530px) {

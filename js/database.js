@@ -8,10 +8,6 @@ export class Database {
      * @param {array} labeledData 
      */
     async addData(labeledData){
-        // const oldData = await this.getData()
-        // labeledData = labeledData.concat(oldData)
-        // console.log('concat data', labeledData)
-
         return new Promise((resolve, reject) => {
             console.log(resolve)
             labeledData.forEach(object => {
@@ -39,6 +35,9 @@ export class Database {
         })
     }
 
+    /**
+     * Get all data objects for all keys
+     */
     getData() {
         return localforage.keys()
             .then(keys => {

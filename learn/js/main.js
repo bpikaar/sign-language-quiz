@@ -100,6 +100,7 @@ export class Main {
                         this.knn.learn(handposeData, dataObject.label);
                     });
                 });
+                console.log('Model trained')
             })
     }
 
@@ -113,12 +114,17 @@ export class Main {
         const ul     = document.createElement('ul')
 
         result.innerHTML = ''
-        result.appendChild(ul)
+        // result.appendChild(ul)
 
         for (const datapoint of this.labeledHandposeData) {
-            const li = document.createElement('li')
-            li.innerHTML = datapoint.label + ' (' + datapoint.data.length + ')'
-            ul.appendChild(li)
+            const chip = document.createElement('chip')
+            chip.innerHTML = datapoint.label
+
+            const span = document.createElement('span')
+            span.innerText = datapoint.data.length
+            chip.appendChild(span)
+
+            result.appendChild(chip)
         }
     }
 
