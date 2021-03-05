@@ -21,7 +21,7 @@ export class HandPose {
     }
 
     get data() {
-        if(this.predictions.length > 0) {
+        if(this.predictions) {
             let result = []
             for (const landmark of this.predictions[0].landmarks) {
                 for (const datapoint of landmark) {

@@ -15,12 +15,19 @@ header {
     margin-top: 20px;
 }
 
+select {
+    padding: 8px;
+    border: 2px solid rgb(69, 69, 206);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 input {
     padding: 8px;
     border: 2px solid rgb(69, 69, 206);
     border-radius: 8px;
 }
-input:focus {
+select:focus, input:focus {
     outline: none;
 }
 container {
@@ -51,10 +58,12 @@ answer {
 }
 
 #webcam-container {
+    position: relative;
     padding: 0;
     overflow: hidden;
 }
-#webcam-container video{
+#webcam-container video, canvas{
+    position: absolute;
     width: 250px;
     height: 250px;
 }

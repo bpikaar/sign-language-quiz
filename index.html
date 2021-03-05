@@ -10,6 +10,10 @@
 
     <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.1.0/dist/tf.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.min.js"></script>
+    <script defer src="https://unpkg.com/@tensorflow-models/handpose@0.0.6/dist/handpose.js"></script>
+    <script defer src="js/handpose.js" type="module"></script>  
+    <script defer src="js/plugins/knear.js"></script>
     <script defer src="js/main.js" type="module"></script>
 </head>
 
@@ -21,6 +25,12 @@
         <device-selection>
             <h3>Input select</h3>
             <div class="select" id="select-wrapper"></div>
+            <!-- <label for="alg">Select algorithm</label>
+            <select id="alg">
+                <option value="">Select algoritm</option>
+                <option value="">Google Teachable Machine</option>
+                <option value="">KNN</option>
+            </select> -->
             <button type="button" id="start">Start</button>
         </device-selection>
         <main>
@@ -41,7 +51,10 @@
                     </failed>
                 </assignment-text>
                 <assignment class="square bordered purple"></assignment>
-                <div id="webcam-container" class="square"></div>
+                <div id="webcam-container" class="square">
+                    <video src="" width="250" height="250"></video>
+                    <canvas id="output" ></canvas>
+                </div>
                 <answer class="square bordered red"></answer>
             </flex-wrapper>
         </main>
