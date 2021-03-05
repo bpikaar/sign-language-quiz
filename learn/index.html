@@ -36,20 +36,27 @@
         <main>
             <canvas id="output" ></canvas>
             <video id="video" playsinline ></video>
-            <h2>Current known poses</h2>
-            <result></result>
-
+            
             <h2>Strike a pose</h2>
+            <p><strong>Stap 1 </strong>Als je een nieuwe handgebaar wilt trainen, moet je een hoofdletter invullen, je hand in de juiste positie houden en dan op Store drukken. Die stand zal dan toegevoegd worden.</p>
             <label for="label">Label</label>
             <input type="text" id="label" placeholder="Name of the class">
             <button type="button" id="store">Store</button>
             
+            <h2>Current known poses</h2>
+            <p>Alle snapshots van een hand die je tot nu toe gemaakt hebt en gekoppeld hebt aan een label</p>
+            <result></result>
+
             <h2>Control local storage</h2>
+            <p><strong>Stap 2 </strong>Als je klaar bent met het maken van alle handgebaren druk je op de knop 'Add to IndexedDb'</p>
+            <div id="message-stored" class="bg-green message"><h2>Data has been stored in database</h2></div>
             <button type="button" id="save">Add to IndexedDb</button>
             <button type="button" id="clear" class="bg-red">Clear IndexedDb</button>
             <button type="button" id="getdata" class="bg-green">Get Data</button>
 
-            <h2>KNN</h2>
+            <h2>Train with KNN</h2>
+            <p><strong>Stap 3 </strong>Als je het algoritme wilt trainen, druk dan bij deze laatste stap op Train</p>
+            <div id="message-trained" class="bg-green message"><h2>Model has been trained</h2></div>
             <button type="button" id="train">Train</button>
             <button type="button" id="classify">Classify</button>
         </main>

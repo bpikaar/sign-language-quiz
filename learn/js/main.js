@@ -78,6 +78,7 @@ export class Main {
         console.log('Add data to IndexedDb')
         await this.db.addData(this.labeledHandposeData)
         console.log('Data added')
+        this.showMessage("message-stored")
     }
 
     async handleClear() {
@@ -101,6 +102,7 @@ export class Main {
                     });
                 });
                 console.log('Model trained')
+                this.showMessage("message-trained")
             })
     }
 
@@ -128,6 +130,12 @@ export class Main {
         }
     }
 
+    showMessage(elementId) {
+        document.getElementById(elementId).style.display = "block"
+        setTimeout(() => {
+            document.getElementById(elementId).style.display = "none"
+        }, 2000);
+    }
 
 }
 
