@@ -17,13 +17,13 @@ export class Main {
         this.db = new Database()
         this.knn = new kNear(5)
 
-        document.querySelector('#start').addEventListener('click',      () => this.handleStart())
-        document.querySelector('#store').addEventListener('click',      () => this.handleStore())
-        document.querySelector('#save').addEventListener('click',       () => this.handleSave())
-        document.querySelector('#clear').addEventListener('click',      () => this.handleClear())
-        document.querySelector('#getdata').addEventListener('click',    () => this.handleGetData())
-        document.querySelector('#train').addEventListener('click',      () => this.handleTrain())
-        document.querySelector('#classify').addEventListener('click',      () => this.handleClassify())
+        document.querySelector('#start').addEventListener('click',          () => this.handleStart())
+        document.querySelector('#store').addEventListener('click',          () => this.handleStore())
+        document.querySelector('#save').addEventListener('click',           () => this.handleSave())
+        document.querySelector('#clear').addEventListener('click',          () => this.handleClear())
+        document.querySelector('#getdata').addEventListener('click',        () => this.handleGetData())
+        document.querySelector('#train').addEventListener('click',          () => this.handleTrain())
+        document.querySelector('#classify').addEventListener('click',       () => this.handleClassify())
         
         document.querySelector('main').style.display = 'none'
 
@@ -113,10 +113,8 @@ export class Main {
 
     showData() {
         const result = document.querySelector('result')
-        const ul     = document.createElement('ul')
 
         result.innerHTML = ''
-        // result.appendChild(ul)
 
         for (const datapoint of this.labeledHandposeData) {
             const chip = document.createElement('chip')
